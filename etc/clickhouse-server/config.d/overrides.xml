@@ -18,6 +18,7 @@
          I have it listen on all interfaces
          on my private network -->
     <listen_host>0.0.0.0</listen_host>
+    <listen_host>::1</listen_host>
 
     <!-- Path to data directory, with trailing slash. -->
     <!-- <path>/var/lib/clickhouse/</path> -->
