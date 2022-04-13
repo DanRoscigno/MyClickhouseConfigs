@@ -1,0 +1,9 @@
+version: '3'
+services:
+  superset:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8088"
+    image: minimal-superset
