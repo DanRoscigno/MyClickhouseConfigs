@@ -11,11 +11,10 @@ $ ip a|grep docker
 Add some Covid19 data to ClickHouse by following step 3 of these
 [instructions](https://clickhouse.com/learn/lessons/covidtutorial-superset/).
 
-NOTE
-====
+> **_NOTE:_**
 The instructions linked to above give details for installing Superset
-on your local machine, rather than in Docker.
-====
+on your local machine, rather than in Docker. I prefer running this in Docker.
+
 
 From above, 172.22.0.1 is the IPADDR of my host machine.  Since
 ClickHouse is running on the host machine, I use `172.22.0.1` in
