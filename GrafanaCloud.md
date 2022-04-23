@@ -1,11 +1,11 @@
-## Connecting to ClickHouse's public DB from Grafana Cloud
+# Connecting to ClickHouse's public DB from Grafana Cloud
 
-### Server
+## Server
     - Server addr: play.clickhouse.com
     - Server port: 9440
     - Secure conn: On
 
-### Credentials
+## Credentials
     - User: play
     - Pass: leave blank
 
