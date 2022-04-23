@@ -1,3 +1,5 @@
+# Connecting Apache Superset to ClickHouse
+
 If you are running Docker on Linux, the IPADDR of your host machine 
 from the perspective of your Apache Superset container, may be seen with
 `ip a | grep docker`:
