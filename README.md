@@ -13,11 +13,9 @@ ClickHouse plugin and see the [README](GrafanaCloud.md)
 ```
 git clone git@github.com:ClickHouse/ClickHouse.git
 git clone git@github.com:ClickHouse/clickhouse-docs.git
-cd clickhouse-docs/docs/en/
-ln -s ../../../ClickHouse/docs/en/* .
-cd ../../
-mkdir -p ../ClickHouse/docs/en/images
-cp ./docs/en/images/play.png ../ClickHouse/docs/en/images/
+cd ClickHouse/docs/en
+cp -r * ../../../clickhouse-docs/docs/en/
+cd ../../../clickhouse-docs
 npm install
 npx docusaurus start
 ```
