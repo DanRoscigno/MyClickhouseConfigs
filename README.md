@@ -10,6 +10,11 @@ To connect Grafana Cloud to the public ClickHouse playground install the Grafana
 ClickHouse plugin and see the [README](GrafanaCloud.md)
 
 ## Running the docs
+node 18 seems to work fine, min is 14.13
+
+There may be a `[WARNING] No docs found in zh: can't auto-generate a sidebar`, as there are no Chinese 
+docs in the repo at the moment.
+
 ```
 git clone git@github.com:ClickHouse/ClickHouse.git
 git clone git@github.com:ClickHouse/clickhouse-docs.git
