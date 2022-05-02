@@ -32,3 +32,9 @@ The [Dockerfile](https://github.com/DanRoscigno/MyClickhouseConfigs/blob/main/Do
 I popped it into the `clickhouse-docs` dir and followed the instructions in Cindy's post
 to modify the docusaurus config.  I added a `chown` to the Dockerfile so that docusaurus (webpack)
 would be able to [write cache files to `node_modules/`](https://webpack.js.org/configuration/cache/#cachecachedirectory).
+
+Commands:
+```
+docker build --target development -t docs:dev .
+docker run -p 3000:3000 docs:dev
+```
