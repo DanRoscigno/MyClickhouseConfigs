@@ -30,5 +30,5 @@ yarn run start
 The [Dockerfile](https://github.com/DanRoscigno/MyClickhouseConfigs/blob/main/Docker/Dockerfile) came from 
 [Cindy Le](https://dev.to/cindyledev/how-to-dockerize-a-docusaurus-v2-application-fp7).
 I popped it into the `clickhouse-docs` dir and followed the instructions in Cindy's post
-to modify the docusaurus config.  I added a `chown` to the Dockerfile so that docusaurus
-would be able to write cache files to `node_modules/`.
+to modify the docusaurus config.  I added a `chown` to the Dockerfile so that docusaurus (webpack)
+would be able to [write cache files to `node_modules/`](https://webpack.js.org/configuration/cache/#cachecachedirectory).
