@@ -1,0 +1,59 @@
+https://aknapen.nl/blog/how-to-build-a-plugin-for-docusaurus-v2/
+
+```
+Only in website: .docusaurus
+```
+
+diff --color -r website2/docusaurus.config.js website/docusaurus.config.js
+3a4
+> const path = require('path');
+44c45
+<     ({
+---
+>     {
+115c116,120
+<     }),
+---
+>       goatcounter: {
+>         code: 'droscigno',
+>       },
+>     },
+>   plugins: [path.resolve(__dirname, 'plugins', 'goatcounter')],
+```
+
+diff --color -r website2/package.json website/package.json
+2c2
+<   "name": "website-2",
+---
+>   "name": "website",
+```
+
+```
+diff --color -r website2/package-lock.json website/package-lock.json
+2c2
+<   "name": "website-2",
+---
+>   "name": "website",
+8c8
+<       "name": "website-2",
+---
+>       "name": "website",
+3174,3176c3174,3176
+<       "version": "1.17.9",
+<       "resolved": "https://registry.npmjs.org/@types/http-proxy/-/http-proxy-1.17.9.tgz",
+<       "integrity": "sha512-QsbSjA/fSk7xB+UXlCT3wHBy5ai9wOcNDWwZAtud+jXhwOM3l+EYZh8Lng4+/6n8uar0J7xILzqftJdJ/Wdfkw==",
+---
+>       "version": "1.17.8",
+>       "resolved": "https://registry.npmjs.org/@types/http-proxy/-/http-proxy-1.17.8.tgz",
+>       "integrity": "sha512-5kPLG5BKpWYkw/LVOGWpiq3nEVqxiN32rTgI53Sk12/xHFQ2rG3ehI9IO+O3W2QoKeyB92dJkoka8SUm6BX1pA==",
+15070,15072c15070,15072
+<       "version": "1.17.9",
+<       "resolved": "https://registry.npmjs.org/@types/http-proxy/-/http-proxy-1.17.9.tgz",
+<       "integrity": "sha512-QsbSjA/fSk7xB+UXlCT3wHBy5ai9wOcNDWwZAtud+jXhwOM3l+EYZh8Lng4+/6n8uar0J7xILzqftJdJ/Wdfkw==",
+---
+>       "version": "1.17.8",
+>       "resolved": "https://registry.npmjs.org/@types/http-proxy/-/http-proxy-1.17.8.tgz",
+>       "integrity": "sha512-5kPLG5BKpWYkw/LVOGWpiq3nEVqxiN32rTgI53Sk12/xHFQ2rG3ehI9IO+O3W2QoKeyB92dJkoka8SUm6BX1pA==",
+Only in website: plugins
+```
+
