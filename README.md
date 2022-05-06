@@ -52,7 +52,7 @@ rm -rf package-lock.json node_modules
 docker build --target development -t docs:dev .
 docker run -p 3000:3000 docs:dev
 ```
-Launch http://172.17.0.1:3000/docs/en/intro (or whatever the `docker0` interface on your host is)
+Launch http://localhost:3000/docs/en/intro 
 
 Note: The `sed` commands should be moved into the Dockerfile, no reason to modify the `package.json` outside of the 
 Docker image.  Maybe move the `cp -r` commands into the Dockerfile also, the `docker build` can grab from the ClickHouse repo...
