@@ -15,6 +15,9 @@ node 18 seems to work fine, min is 14.13
 There may be a `[WARNING] No docs found in zh: can't auto-generate a sidebar`, as there are no Chinese 
 docs in the repo at the moment.
 
+### Run locally
+Note: If you prefer to run in Docker see below
+
 ```
 git clone git@github.com:ClickHouse/ClickHouse.git
 git clone git@github.com:ClickHouse/clickhouse-docs.git
@@ -35,6 +38,15 @@ would be able to [write cache files to `node_modules/`](https://webpack.js.org/c
 
 Commands:
 ```
+git clone git@github.com:ClickHouse/ClickHouse.git
+git clone git@github.com:ClickHouse/clickhouse-docs.git
+git clone git@github.com:DanRoscigno/MyClickhouseConfigs.git
+cd ClickHouse/docs/en
+cp -r * ../../../clickhouse-docs/docs/en/
+cd ../../../MyClickhouseConfigs
+cp MyClickhouseConfigs/Docker/Dockerfile clickhouse-docs/
+cd clickhouse-docs
+rm -rf package-lock.json node_modules
 docker build --target development -t docs:dev .
 docker run -p 3000:3000 docs:dev
 ```
