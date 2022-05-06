@@ -46,7 +46,13 @@ cp -r * ../../../clickhouse-docs/docs/en/
 cd ../../../MyClickhouseConfigs
 cp MyClickhouseConfigs/Docker/Dockerfile clickhouse-docs/
 cd clickhouse-docs
+sed --in-place 's/"start": "docusaurus start",/"start": "docusaurus start --host 0.0.0.0",/' package.json
+sed --in-place 's/"serve": "docusaurus serve",/"serve": "docusaurus serve --host 0.0.0.0",/' package.json
 rm -rf package-lock.json node_modules
 docker build --target development -t docs:dev .
 docker run -p 3000:3000 docs:dev
 ```
+Launch http://172.17.0.1:3000/docs/en/intro (or whatever the `docker0` interface on your host is)
+
+Note: The `sed` commands should be moved into the Dockerfile, no reason to modify the `package.json` outside of the 
+Docker image.  Maybe move the `cp -r` commands into the Dockerfile also, the `docker build` can grab from the ClickHouse repo...
