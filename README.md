@@ -43,7 +43,7 @@ git clone git@github.com:ClickHouse/clickhouse-docs.git
 git clone git@github.com:DanRoscigno/MyClickhouseConfigs.git
 cd ClickHouse/docs/en
 cp -r * ../../../clickhouse-docs/docs/en/
-cd ../../../MyClickhouseConfigs
+cd ../../../
 cp MyClickhouseConfigs/Docker/Dockerfile clickhouse-docs/
 cd clickhouse-docs
 sed --in-place 's/"start": "docusaurus start",/"start": "docusaurus start --host 0.0.0.0",/' package.json
