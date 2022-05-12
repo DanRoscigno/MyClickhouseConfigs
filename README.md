@@ -21,12 +21,16 @@ Note: If you prefer to run in Docker see below
 ```
 git clone git@github.com:ClickHouse/ClickHouse.git
 git clone git@github.com:ClickHouse/clickhouse-docs.git
-cd ClickHouse/docs/en
-cp -r * ../../../clickhouse-docs/docs/en/
-cd ../../../clickhouse-docs
+
+cp -r ClickHouse/docs/en/* clickhouse-docs/docs/en/
+cp MyClickhouseConfigs/Docker/Dockerfile clickhouse-docs/
+
+cd clickhouse-docs
+
 yarn install
 yarn run start
 ```
+Launch http://localhost:3000/docs/en/intro 
 
 ### Dockerfile for docusaurus
 
