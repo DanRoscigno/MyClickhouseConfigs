@@ -29,7 +29,5 @@ CREATE TABLE NYPD_Complaint ( CMPLNT_NUM Int32,
                               X_COORD_CD Int32,
                               Y_COORD_CD Int32,
                               Latitude Float64,
-                              Longitude Float64,
-                              Lat_Lon String,
-                              New_Georeferenced_Column String)
+                              Longitude Float64)
                          ENGINE = MergeTree ORDER BY CMPLNT_FR_DATETIME
