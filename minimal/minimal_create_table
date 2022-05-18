@@ -1,0 +1,6 @@
+CREATE TABLE minimal ( CMPLNT_NUM Int32,
+                              ADDR_PCT_CD Int32,
+                              BORO_NM String,
+                              CMPLNT_FR_DATETIME DateTime,
+                              CMPLNT_TO_DATETIME Nullable(DateTime))
+                         ENGINE = MergeTree ORDER BY CMPLNT_FR_DATETIME

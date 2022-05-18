@@ -1,0 +1,25 @@
+cat minimal.tsv \
+ | clickhouse-local \
+  --table='input' \
+  --input-format='TSVWithNames' \
+  --structure="
+    CMPLNT_NUM Int32,
+    ADDR_PCT_CD Int32,
+    BORO_NM String,
+    CMPLNT_FR_DT String,
+    CMPLNT_FR_TM String,
+    CMPLNT_TO_DT String,
+    CMPLNT_TO_TM String
+" --query "
+    WITH arrayStringConcat([CMPLNT_FR_DT, CMPLNT_FR_TM], ' ') AS FROM_TM,
+    arrayStringConcat([CMPLNT_TO_DT, CMPLNT_TO_TM], ' ') AS TO_TM
+    SELECT
+        CMPLNT_NUM,
+        ADDR_PCT_CD,
+        BORO_NM,
+	toDateTime(parseDateTimeBestEffort(FROM_TM)) CMPLNT_FR_DATETIME,
+	toDateTime(parseDateTimeBestEffortOrNull(CAST(TO_TM as String))) CMPLNT_TO_DATETIME
+    FROM input" --date_time_input_format best_effort \
+  --format=Native | clickhouse-client --password \
+  --query='INSERT INTO minimal FORMAT Native'
+
