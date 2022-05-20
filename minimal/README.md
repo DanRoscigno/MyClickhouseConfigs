@@ -9,3 +9,12 @@ or your override, and set the file ownership to the user that runs
     file('NYPD_Complaint_Data_Current__Year_To_Date_.tsv', 'TSVWithNames')
     group by ADDR_PCT_CD
     ```
+
+### reset and check
+
+```
+echo "drop table minimal" | clickhouse-client --password
+cat minimal_create_table| clickhouse-client --password
+zsh ./minimal_load
+echo "select * from minimal" | clickhouse-client --password
+```
