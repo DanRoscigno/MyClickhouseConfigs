@@ -4,8 +4,8 @@ cat minimal.tsv \
   --input-format='TSVWithNames' \
   --query "
     SELECT
-        CMPLNT_NUM::UInt32 as complaint_number,
-        ADDR_PCT_CD::UInt8 as precinct,
+        CMPLNT_NUM as complaint_number,
+        ADDR_PCT_CD as precinct,
         BORO_NM as borough,
 	      parseDateTimeBestEffort(CMPLNT_FR_DT || ' ' || CMPLNT_FR_TM) AS complaint_time,
 	      parseDateTimeBestEffortOrNull(CMPLNT_TO_DT || ' ' || CMPLNT_TO_TM) AS resolution_time
