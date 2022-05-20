@@ -10,6 +10,5 @@ cat minimal.tsv \
 	      parseDateTimeBestEffort(CMPLNT_FR_DT || ' ' || CMPLNT_FR_TM) AS complaint_time,
 	      parseDateTimeBestEffortOrNull(CMPLNT_TO_DT || ' ' || CMPLNT_TO_TM) AS resolution_time
     FROM input" \
-  | clickhouse-client --password \
-  --query='INSERT INTO minimal FORMAT TSV'
+  | clickhouse-client --query='INSERT INTO minimal FORMAT TSV'
 

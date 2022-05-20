@@ -13,8 +13,8 @@ or your override, and set the file ownership to the user that runs
 ### reset and check
 
 ```
-echo "drop table minimal" | clickhouse-client --password
-cat minimal_create_table| clickhouse-client --password
+echo "drop table minimal" | clickhouse-client
+cat minimal_create_table| clickhouse-client
 zsh ./minimal_load
-echo "select * from minimal" | clickhouse-client --password
+echo "select * from minimal" | clickhouse-client
 ```
