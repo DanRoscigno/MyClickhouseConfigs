@@ -1,7 +1,4 @@
-cat minimal.tsv \
- | clickhouse-local \
-  --table='input' \
-  --input-format='TSVWithNames' \
+cat minimal.tsv | clickhouse-local --table='input' --input-format='TSVWithNames' \
   --query "
     SELECT
         CMPLNT_NUM as complaint_number,
