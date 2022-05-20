@@ -6,9 +6,9 @@ cat minimal.tsv \
     WITH arrayStringConcat([CMPLNT_FR_DT, CMPLNT_FR_TM], ' ') AS FROM_TM,
     arrayStringConcat([CMPLNT_TO_DT, CMPLNT_TO_TM], ' ') AS TO_TM
     SELECT
-        cast (CMPLNT_NUM as UInt32) as complaint_number,
-        cast (ADDR_PCT_CD as UInt8) as precinct,
-        cast (BORO_NM as String) as borough,
+        CMPLNT_NUM::UInt32 as complaint_number,
+        ADDR_PCT_CD::UInt8 as precinct,
+        BORO_NM as borough,
 	toDateTime(parseDateTimeBestEffort(FROM_TM)) AS complaint_time,
 	toDateTime(parseDateTimeBestEffortOrNull(CAST(TO_TM as String))) AS resolution_time
     FROM input" --date_time_input_format best_effort \
