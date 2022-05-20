@@ -9,8 +9,8 @@ cat minimal.tsv \
         CMPLNT_NUM::UInt32 as complaint_number,
         ADDR_PCT_CD::UInt8 as precinct,
         BORO_NM as borough,
-	toDateTime(parseDateTimeBestEffort(FROM_TM)) AS complaint_time,
-	toDateTime(parseDateTimeBestEffortOrNull(CAST(TO_TM as String))) AS resolution_time
+	parseDateTimeBestEffort(FROM_TM) AS complaint_time,
+	parseDateTimeBestEffortOrNull(CAST(TO_TM as String)) AS resolution_time
     FROM input" \
   | clickhouse-client --password \
   --query='INSERT INTO minimal FORMAT TSV'
