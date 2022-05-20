@@ -11,7 +11,7 @@ cat minimal.tsv \
         BORO_NM as borough,
 	toDateTime(parseDateTimeBestEffort(FROM_TM)) AS complaint_time,
 	toDateTime(parseDateTimeBestEffortOrNull(CAST(TO_TM as String))) AS resolution_time
-    FROM input" --date_time_input_format best_effort \
+    FROM input" \
   | clickhouse-client --password \
   --query='INSERT INTO minimal FORMAT TSV'
 
