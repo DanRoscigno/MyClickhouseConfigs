@@ -1,44 +1,40 @@
-cat /home/droscign/Downloads/NYPD_Complaint_Data_Current__Year_To_Date_.tsv \
- | clickhouse-local \
-  --table='input' \
-  --input-format='TSVWithNames' \
+cat ${HOME}/NYPD_Complaint_Data_Current__Year_To_Date_.tsv | clickhouse-local --table='input' --input-format='TSVWithNames' \
   --query "
-    WITH arrayStringConcat([CMPLNT_FR_DT, CMPLNT_FR_TM], ' ') AS FROM_TM,
-    arrayStringConcat([CMPLNT_TO_DT, CMPLNT_TO_TM], ' ') AS TO_TM
+WITH (CMPLNT_FR_DT || ' ' || CMPLNT_FR_TM) AS complaint_start,
+     (CMPLNT_TO_DT || ' ' || CMPLNT_TO_TM) AS complaint_end
     SELECT
-        cast (CMPLNT_NUM as UInt32) AS complaint_number,
-        cast (ADDR_PCT_CD as UInt8) AS precinct,
-        cast (BORO_NM as String) as borough,
-	toDateTime(parseDateTimeBestEffort(FROM_TM)) as complaint_time,
-	toDateTime(parseDateTimeBestEffortOrNull(CAST(TO_TM as String))) as resolution_time,
-        CRM_ATPT_CPTD_CD as was_crime_completed,
-        HADEVELOPT as housing_authority_development,
-        cast (HOUSING_PSA as Nullable(Int32)) as housing_level_code,
-        cast (JURISDICTION_CODE as Nullable(UInt8)) as jurisdiction_code,
-        cast (JURIS_DESC as LowCardinality(String)) as jurisdiction,
-        cast (KY_CD as UInt8) as offense_code,
-        cast (LAW_CAT_CD as LowCardinality(String)) as offense_level,
-        cast (LOC_OF_OCCUR_DESC as LowCardinality(String)) as location_descriptor,
-        OFNS_DESC as offense_description,
-        cast (PARKS_NM as LowCardinality(String)) as park_name,
-        cast (PATROL_BORO as LowCardinality(String)) as patrol_borough,
-        cast (PD_CD as UInt16) as PD_CD,
-        PD_DESC,
-        cast (PREM_TYP_DESC as LowCardinality(String)) as location_type,
-	toDate(parseDateTimeBestEffort(RPT_DT)) as date_reported,
-        cast (STATION_NAME as LowCardinality(String)) as transit_station,
-        cast (SUSP_AGE_GROUP as LowCardinality(String)) as suspect_age_group,
-        cast (SUSP_RACE as LowCardinality(String)) as suspect_race,
-        cast (SUSP_SEX as LowCardinality(String)) as suspect_sex,
-        cast (TRANSIT_DISTRICT as UInt8) as transit_district,
-        cast (VIC_AGE_GROUP as LowCardinality(String)) as victim_age_group,
-        cast (VIC_RACE as LowCardinality(String)) as victim_race,
-        cast (VIC_SEX as LowCardinality(String)) as victim_sex,
-        cast (X_COORD_CD as UInt32) as NY_x_coordinate,
-        cast (Y_COORD_CD as UInt32) as NY_y_coordinate,
-        cast (Latitude as Float64) as Latitude,
-        cast (Longitude as Float64) as Longitude
-    FROM input" --date_time_input_format best_effort \
-  --input_format_skip_unknown_fields true \
-  --format=Native | clickhouse-client --verbose --password \
-  --query='INSERT INTO NYPD_Complaint FORMAT Native'
+CMPLNT_NUM::UInt32 AS complaint_number,
+ADDR_PCT_CD::UInt8 AS precinct,
+BORO_NM::LowCardinality(String) AS borough,
+replaceRegexpOne(complaint_start, '(\\d{2})/(\\d{2})/(\\d{4})', '\\3/\\1/\\2')::DateTime64(0) AS complaint_time,
+replaceRegexpOne(complaint_start, '(\\d{2})/(\\d{2})/(\\d{4})', '\\3/\\1/\\2')::DateTime64(0) AS resolution_time,
+CRM_ATPT_CPTD_CD AS was_crime_completed,
+HADEVELOPT AS housing_authority_development,
+HOUSING_PSA::UInt32 AS housing_level_code,
+JURISDICTION_CODE::UInt8 AS jurisdiction_code, 
+JURIS_DESC::LowCardinality(String) AS jurisdiction,
+KY_CD::UInt8 AS offense_code,
+LAW_CAT_CD::LowCardinality(String) AS offense_level,
+LOC_OF_OCCUR_DESC::LowCardinality(String) AS location_descriptor,
+OFNS_DESC AS offense_description, 
+PARKS_NM::LowCardinality(String) AS park_name,
+PATROL_BORO::LowCardinality(String) AS patrol_borough,
+PD_CD::UInt16,
+PD_DESC,
+PREM_TYP_DESC::LowCardinality(String) AS location_type,
+toDate(parseDateTimeBestEffort(RPT_DT)) AS date_reported,
+STATION_NAME::LowCardinality(String) AS transit_station,
+SUSP_AGE_GROUP::LowCardinality(String) AS suspect_age_group,
+ SUSP_RACE::LowCardinality(String) AS suspect_race,
+SUSP_SEX::LowCardinality(String) AS suspect_sex,
+TRANSIT_DISTRICT::UInt8 AS transit_district,
+VIC_AGE_GROUP::LowCardinality(String) AS victim_age_group,   
+VIC_RACE::LowCardinality(String) AS victim_race,
+VIC_SEX::LowCardinality(String) AS victim_sex,
+X_COORD_CD::UInt32 AS NY_x_coordinate,
+Y_COORD_CD::UInt32 AS NY_y_coordinate,
+Latitude,
+Longitude
+    FROM input" \
+  | clickhouse-client --query='INSERT INTO NYPD_Complaint FORMAT TSV'
+
