@@ -7,7 +7,7 @@ CMPLNT_NUM::UInt32 AS complaint_number,
 ADDR_PCT_CD::UInt8 AS precinct,
 BORO_NM::LowCardinality(String) AS borough,
 replaceRegexpOne(complaint_start, '(\\d{2})/(\\d{2})/(\\d{4})', '\\3/\\1/\\2')::DateTime64(0) AS complaint_time,
-replaceRegexpOne(complaint_start, '(\\d{2})/(\\d{2})/(\\d{4})', '\\3/\\1/\\2')::DateTime64(0) AS resolution_time,
+replaceRegexpOne(complaint_end, '(\\d{2})/(\\d{2})/(\\d{4})', '\\3/\\1/\\2')::DateTime64(0) AS resolution_time,
 CRM_ATPT_CPTD_CD AS was_crime_completed,
 HADEVELOPT AS housing_authority_development,
 HOUSING_PSA::UInt32 AS housing_level_code,
@@ -35,6 +35,6 @@ X_COORD_CD::UInt32 AS NY_x_coordinate,
 Y_COORD_CD::UInt32 AS NY_y_coordinate,
 Latitude,
 Longitude
-    FROM input" \
+    FROM input WHERE CMPLNT_TO_DT <> '' and complaint_end <> ' '" \
   | clickhouse-client --query='INSERT INTO NYPD_Complaint FORMAT TSV'
 
