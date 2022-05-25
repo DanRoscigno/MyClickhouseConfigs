@@ -1,6 +1,6 @@
 CREATE TABLE minimal ( complaint_number UInt32,
                        precinct UInt8,
                        borough LowCardinality(String),
-                       complaint_time DateTime,
-                       resolution_time Nullable(DateTime))
+                       complaint_time DateTime64,
+                       resolution_time Nullable(DateTime64))
                 ENGINE = MergeTree ORDER BY complaint_time
