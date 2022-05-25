@@ -26,3 +26,7 @@ the Superset SQLALCHEMY URI:
 ```
 clickhouse+native://default:supersecret@172.22.0.1/covid19db
 ```
+Another example, connecting Preset's cloud offering to ClickHouse
+```
+clickhouse+native://default:supersecret@fully.qualified.domain.name:9440/default?secure=true
+```
