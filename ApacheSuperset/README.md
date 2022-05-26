@@ -1,4 +1,21 @@
-# Connecting Apache Superset to ClickHouse
+## Run Superset in Docker
+In this repo there is a `Dockerfile` and `docker-compose.yml`.  By default the Dockerfile will install all of the 
+Superset demo data and visualizations.  You can just remove that line from the Dockerfile if you do not want that.
+
+The plugins needed to connect to ClickHouse are installed during the build.
+
+The admin password is also set in the Dockerfile, you can change the password in Superset.  I don't know if it will
+persist if you change it.
+
+Once the image is ready you will see a bunch of health check logs:
+```
+superset-superset-1  | 127.0.0.1 - - [26/May/2022:01:44:52 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+superset-superset-1  | 127.0.0.1 - - [26/May/2022:01:45:22 +0000] "GET /health HTTP/1.1" 200 2 "-" "curl/7.74.0"
+```
+
+You can then connect to http://localhost:8080 and log in with `admin` and the password from the Dockerfile.
+
+## Connecting Apache Superset to ClickHouse
 
 If you are running ClickHouse on a Linux machine and Superset in Docker on 
 that same machine, the IPADDR of the host machine, from the perspective of
