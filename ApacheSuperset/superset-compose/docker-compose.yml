@@ -7,3 +7,7 @@ services:
     ports:
       - "8080:8088"
     image: minimal-superset
+    volumes:
+      - supersetminimal:/app
+volumes:
+  supersetminimal:

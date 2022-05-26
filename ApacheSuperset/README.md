@@ -4,8 +4,7 @@ Superset demo data and visualizations.  You can just remove that line from the D
 
 The plugins needed to connect to ClickHouse are installed during the build.
 
-The admin password is also set in the Dockerfile, you can change the password in Superset.  I don't know if it will
-persist if you change it.
+The admin password is also set in the Dockerfile, you can change the password in Superset.  
 
 Once the image is ready you will see a bunch of health check logs:
 ```
@@ -43,7 +42,8 @@ the Superset SQLALCHEMY URI:
 ```
 clickhouse+native://default:supersecret@172.22.0.1/covid19db
 ```
-Another example, connecting Preset's cloud offering to ClickHouse
+Another example, connecting either this Docker image or Preset's cloud offering to ClickHouse
+running with a proper SSL cert
 ```
 clickhouse+native://default:supersecret@fully.qualified.domain.name:9440/default?secure=true
 ```
