@@ -10,10 +10,11 @@ docker volume rm supersetvol
 
 - Start the container with a persistent volume
 ```
-docker run -d -p 8080:8088 \
-       --name superset \
-       --mount source=supersetvol,target=/app \
-       apache/superset:1.5.0
+docker run -d \
+           --network="host" \
+           --name superset \
+           --mount source=supersetvol,target=/app \
+           apache/superset:1.5.0
 ```
 
 - Create the admin user
@@ -38,8 +39,7 @@ docker exec -it superset superset init
 
 - Add the drivers for ClickHouse and SQLAlchemy as root
 ```
-docker exec -it -u 0 superset bash -c "pip install clickhouse-driver==0.2.3"
-docker exec -it -u 0 superset bash -c "pip install clickhouse-sqlalchemy==0.1.9"
+docker exec -it -u 0 superset bash -c "pip install clickhouse-connect==0.0.10"
 docker restart superset
 ```
 
@@ -49,10 +49,14 @@ http://admin:scoobydoo@localhost:8080
 ```
 
 - Add a ClickHouse database
-# clicking on Data and adding a database, choose clickhouse from the other supported and pasting in connection string 
+# clicking on Data and adding a database, choose ClickHouse Connect from the other supported and fill in the form:
 
-clickhouse+native://default:FXarIEzaTYog@gf2e410ga9.us-east-2.aws.clickhouse-staging.com:9440/default?secure=true
-
+  - Host: gf2e410ga9.us-east-2.aws.clickhouse-staging.com
+  - Port: 8123
+  - Username: default
+  - Password: XXXXXXXX
+  - Database: default
+  - SSL: On
 
 - Stop the container
 In your browser log out of Superset and then stop the container:
