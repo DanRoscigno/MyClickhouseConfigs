@@ -45,7 +45,7 @@ docker restart superset
 
 - Open a browser and log in with the username / password for the admin user
 ```
-http://admin:scoobydoo@localhost:8080
+http://admin:scoobydoo@localhost:8088
 ```
 
 - Add a ClickHouse database
