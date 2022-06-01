@@ -52,7 +52,7 @@ http://admin:scoobydoo@localhost:8088
 # clicking on Data and adding a database, choose ClickHouse Connect from the other supported and fill in the form:
 
   - Host: gf2e410ga9.us-east-2.aws.clickhouse-staging.com
-  - Port: 8123
+  - Port: 8443
   - Username: default
   - Password: XXXXXXXX
   - Database: default
