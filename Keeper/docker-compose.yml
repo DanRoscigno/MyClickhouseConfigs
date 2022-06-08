@@ -1,7 +1,5 @@
 version: "3.7"
 
-x-clickhouse-defaults: &clickhouse-defaults
-
 services:
   chnode1:
     restart: unless-stopped
@@ -23,26 +21,6 @@ services:
         target: /var/lib/clickhouse
       - "./configs/chnode1:/etc/clickhouse-server/config.d/"
 
-  chnode3:
-    restart: unless-stopped
-    image: clickhouse/clickhouse-server:22.5
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 262144
-        hard: 262144
-    container_name: chnode3
-    hostname: chnode3
-    ports:
-      - 9002:9000
-      - 8125:8123
-      - 9183:9181
-    volumes:
-      - type: volume
-        source: chnode3-config
-        target: /var/lib/clickhouse
-      - "./configs/chnode3:/etc/clickhouse-server/config.d/"
-
   chnode2:
     restart: unless-stopped
     image: clickhouse/clickhouse-server:22.5
@@ -62,6 +40,26 @@ services:
         source: chnode2-config
         target: /var/lib/clickhouse
       - "./configs/chnode2:/etc/clickhouse-server/config.d/"
+
+  chnode3:
+    restart: unless-stopped
+    image: clickhouse/clickhouse-server:22.5
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    container_name: chnode3
+    hostname: chnode3
+    ports:
+      - 9002:9000
+      - 8125:8123
+      - 9183:9181
+    volumes:
+      - type: volume
+        source: chnode3-config
+        target: /var/lib/clickhouse
+      - "./configs/chnode3:/etc/clickhouse-server/config.d/"
 
 volumes:
   chnode1-config:
