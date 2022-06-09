@@ -15,17 +15,17 @@
             <server>
                 <id>1</id>
                 <hostname>chnode1</hostname>
-                <port>9234</port>
+                <port>9444</port>
             </server>
             <server>
                 <id>2</id>
                 <hostname>chnode2</hostname>
-                <port>9234</port>
+                <port>9444</port>
             </server>
             <server>
                 <id>3</id>
                 <hostname>chnode3</hostname>
-                <port>9234</port>
+                <port>9444</port>
             </server>
         </raft_configuration>
     </keeper_server>

@@ -12,7 +12,7 @@ services:
     container_name: chnode1
     hostname: chnode1
     ports:
-      - 9000:9000
+      - 9001:9000
       - 8123:8123
       - 9181:9181
     volumes:
@@ -32,7 +32,7 @@ services:
     container_name: chnode2
     hostname: chnode2
     ports:
-      - 9001:9000
+      - 9002:9000
       - 8124:8123
       - 9182:9181
     volumes:
@@ -52,7 +52,7 @@ services:
     container_name: chnode3
     hostname: chnode3
     ports:
-      - 9002:9000
+      - 9003:9000
       - 8125:8123
       - 9183:9181
     volumes:
