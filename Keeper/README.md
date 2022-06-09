@@ -24,3 +24,8 @@ docker compose exec chnode1 clickhouse-client
 There is one step where you are told to insert into `chnode2`, so run
 that on `chnode2` or connect to port 9002.
 
+### Open a shell
+```
+docker compose exec chnode1 su clickhouse
+```
+
