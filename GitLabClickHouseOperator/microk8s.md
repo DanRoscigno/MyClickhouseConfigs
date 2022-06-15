@@ -57,7 +57,10 @@ cat config/samples/example.yaml
 kubectl exec -it -n default statefulset/example-0 -- \
    clickhouse-client -u admin --password -h 10.152.183.68 \
    -f PrettyCompact -q 'SELECT name,engine,data_path FROM system.databases;'
- 
+```
+
+### Cluster members
+``` 
 kubectl exec -it -n default statefulset/example-0 -- \
    clickhouse-client -u admin --password -h 10.152.183.68 \
    -f PrettyCompact \
