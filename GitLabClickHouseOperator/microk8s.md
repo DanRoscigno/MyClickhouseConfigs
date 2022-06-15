@@ -3,9 +3,12 @@
 ```
 sudo snap install microk8s --classic
 sudo microk8s status --wait-ready
-microk8s enable dashboard dns registry
 sudo usermod -a -G microk8s droscign
 newgrp microk8s
+microk8s enable dashboard
+microk8s enable dns
+microk8s enable registry
+microk8s enable host-access
 ```
  
 Take note of the newgrp command.  I am pretty sure that group management in Ubuntu is totally foobar.  I have to run the newgrp evey time I run
@@ -35,4 +38,28 @@ cd GitHub/opstrace/clickhouse-operator
 newgrp microk8s
 microk8s kubectl apply -f ./config/samples/example.yaml
 microk8s kubectl get pods
+```
+
+## Queries
+
+Find the IP Addr of the `example` service, `10.152.183.68` in my case, so it is in the example queries down below
+```
+kubectl get services
+```
+### Get the username and password
+(admin and InsecurePassword or something like that)
+```
+cat config/samples/example.yaml
+```
+
+### List of databases
+```
+kubectl exec -it -n default statefulset/example-0 -- \
+   clickhouse-client -u admin --password -h 10.152.183.68 \
+   -f PrettyCompact -q 'SELECT name,engine,data_path FROM system.databases;'
+ 
+kubectl exec -it -n default statefulset/example-0 -- \
+   clickhouse-client -u admin --password -h 10.152.183.68 \
+   -f PrettyCompact \
+   -q "SELECT cluster,shard_num,replica_num,host_name,host_address FROM system.clusters WHERE startsWith(host_name, 'example');"
 ```
