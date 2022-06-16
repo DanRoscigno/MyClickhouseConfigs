@@ -32,8 +32,8 @@ https://gitlab.com/gitlab-org/opstrace/opstrace/-/blob/main/clickhouse-operator/
 cd ~/GitHub
 git clone https://gitlab.com/gitlab-org/opstrace/opstrace.git
 cd opstrace/clickhouse-operator
-make manifests build
 newgrp microk8s
+make manifests build
 microk8s.kubectl config view --raw > $HOME/.kube/config
 make run
 ```
