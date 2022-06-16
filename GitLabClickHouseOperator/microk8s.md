@@ -35,6 +35,7 @@ cd opstrace/clickhouse-operator
 newgrp microk8s
 make manifests build
 microk8s.kubectl config view --raw > $HOME/.kube/config
+kubectl apply -f ./config/crd/bases/clickhouse.gitlab.com_clickhouses.yaml
 make run
 ```
  
