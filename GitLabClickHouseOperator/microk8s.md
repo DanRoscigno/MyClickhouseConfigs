@@ -1,9 +1,12 @@
 ## Install microk8s
 
 https://microk8s.io/#install-microk8s
- 
+
+Edit ~/.zshrc and add `alias kubectl="microk8s kubectl"`
+
 ```
 sudo snap install microk8s --classic
+alias kubectl="microk8s kubectl"
 sudo microk8s status --wait-ready
 sudo usermod -a -G microk8s droscign
 newgrp microk8s
@@ -30,7 +33,6 @@ cd ~/GitHub
 git clone https://gitlab.com/gitlab-org/opstrace/opstrace.git
 cd opstrace/clickhouse-operator
 make manifests build
-alias kubectl="microk8s kubectl"
 newgrp microk8s
 microk8s.kubectl config view --raw > $HOME/.kube/config
 make run
