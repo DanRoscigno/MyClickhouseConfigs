@@ -1,0 +1,26 @@
+# A minimal example referenced by the README and exercised by go tests.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: example-users
+  namespace: default
+type: Opaque
+stringData:
+  admin-password: catfood
+---
+apiVersion: clickhouse.gitlab.com/v1alpha1
+kind: ClickHouse
+metadata:
+  name: example
+  namespace: default
+spec:
+  deploy:
+    image: clickhouse/clickhouse-server:22.4.2.1
+    replicas: 1
+    storageSize: 5Gi
+    affinity: {}
+  adminUsers:
+  - name: admin
+    secretKeyRef:
+      name: example-users
+      key: admin-password
