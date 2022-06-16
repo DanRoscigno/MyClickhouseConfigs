@@ -40,6 +40,40 @@ make run
 ```
 cd GitHub/opstrace/clickhouse-operator
 newgrp microk8s
+```
+### Deploy a single node ClickHouse database
+
+With only one k8s node I think you can only deploy one ClickHouse server.  Here is a manifest (also in single-node.yaml):
+
+```
+# A minimal example referenced by the README and exercised by go tests.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: example-users
+  namespace: default
+type: Opaque
+stringData:
+  admin-password: catfood
+---
+apiVersion: clickhouse.gitlab.com/v1alpha1
+kind: ClickHouse
+metadata:
+  name: example
+  namespace: default
+spec:
+  deploy:
+    image: clickhouse/clickhouse-server:22.4.2.1
+    replicas: 1
+    storageSize: 5Gi
+    affinity: {}
+  adminUsers:
+  - name: admin
+    secretKeyRef:
+      name: example-users
+      key: admin-password
+
+```
 microk8s kubectl apply -f ./config/samples/example.yaml
 microk8s kubectl get pods
 ```
