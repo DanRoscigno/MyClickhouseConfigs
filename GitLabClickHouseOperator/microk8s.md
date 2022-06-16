@@ -77,6 +77,8 @@ spec:
       key: admin-password
 
 ```
+
+```
 kubectl apply -f https://raw.githubusercontent.com/DanRoscigno/MyClickhouseConfigs/main/GitLabClickHouseOperator/single-node.yaml
 microk8s kubectl get pods
 ```
