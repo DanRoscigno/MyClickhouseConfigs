@@ -22,6 +22,8 @@ I had to remove first `sudo apt remove golang` and remove the env vars from my .
   then install `sudo apt install golang`
  
 ## Install the operator
+
+https://gitlab.com/gitlab-org/opstrace/opstrace/-/blob/main/clickhouse-operator/README.md
  
 ```
 cd ~/GitHub
