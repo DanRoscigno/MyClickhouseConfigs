@@ -1,0 +1,351 @@
+Processing configuration file '/etc/clickhouse-server/config.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/docker_related_config.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/enable_keeper.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/macros.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/remote_servers.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/ssl_conf.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/use_keeper.xml'.
+Logging trace to /var/log/clickhouse-server/clickhouse-server.log
+Logging errors to /var/log/clickhouse-server/clickhouse-server.err.log
+2022.06.17 22:30:15.515232 [ 43 ] {} <Information> SentryWriter: Sending crash reports is disabled
+2022.06.17 22:30:15.520734 [ 43 ] {} <Trace> Pipe: Pipe capacity is 1.00 MiB
+2022.06.17 22:30:15.627417 [ 43 ] {} <Information> : Starting ClickHouse 22.6.1.1985 with revision 54463, build id: A1A632F69545B4EC, PID 43
+2022.06.17 22:30:15.627636 [ 43 ] {} <Information> Application: starting up
+2022.06.17 22:30:15.627675 [ 43 ] {} <Information> Application: OS name: Linux, version: 5.15.0-39-generic, architecture: x86_64
+2022.06.17 22:30:15.631993 [ 43 ] {} <Trace> AsynchronousMetrics: Scanning /sys/class/thermal
+2022.06.17 22:30:15.646324 [ 43 ] {} <Trace> AsynchronousMetrics: Scanning /sys/block
+2022.06.17 22:30:15.646452 [ 43 ] {} <Trace> AsynchronousMetrics: Scanning /sys/devices/system/edac
+2022.06.17 22:30:15.646473 [ 43 ] {} <Trace> AsynchronousMetrics: Scanning /sys/class/hwmon
+2022.06.17 22:30:15.663945 [ 43 ] {} <Warning> AsynchronousMetrics: Hardware monitor 'thinkpad', sensor 'GPU' exists but could not be read, error 6.
+2022.06.17 22:30:15.677266 [ 43 ] {} <Warning> AsynchronousMetrics: Hardware monitor 'thinkpad', sensor '' exists but could not be read, error 6.
+2022.06.17 22:30:15.803164 [ 43 ] {} <Information> Application: Integrity check of the executable successfully passed (checksum: BC7D0D92B4030496529F48AA709DAAEE)
+2022.06.17 22:30:15.803217 [ 43 ] {} <Information> Application: It looks like the process has no CAP_IPC_LOCK capability, binary mlock will be disabled. It could happen due to incorrect ClickHouse package installation. You could resolve the problem manually with 'sudo setcap cap_ipc_lock=+ep /usr/bin/clickhouse'. Note that it will not work on 'nosuid' mounted filesystems.
+2022.06.17 22:30:15.804042 [ 43 ] {} <Debug> Application: rlimit on number of file descriptors is 262144
+2022.06.17 22:30:15.804066 [ 43 ] {} <Debug> Application: rlimit on number of threads is 65535
+2022.06.17 22:30:15.804074 [ 43 ] {} <Debug> Application: Initializing DateLUT.
+2022.06.17 22:30:15.804081 [ 43 ] {} <Trace> Application: Initialized DateLUT with time zone 'UTC'.
+2022.06.17 22:30:15.804106 [ 43 ] {} <Debug> Application: Setting up /var/lib/clickhouse/tmp/ to store temporary data in it
+2022.06.17 22:30:15.829773 [ 43 ] {} <Debug> Application: Configuration parameter 'interserver_http_host' doesn't exist or exists and empty. Will use 'node1' as replica host.
+2022.06.17 22:30:15.829828 [ 43 ] {} <Debug> Application: Initiailizing interserver credentials.
+2022.06.17 22:30:15.830046 [ 43 ] {} <Information> SensitiveDataMaskerConfigRead: 1 query masking rules loaded.
+2022.06.17 22:30:15.831417 [ 43 ] {} <Debug> ConfigReloader: Loading config '/etc/clickhouse-server/config.xml'
+Processing configuration file '/etc/clickhouse-server/config.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/docker_related_config.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/enable_keeper.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/macros.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/remote_servers.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/ssl_conf.xml'.
+Merging configuration file '/etc/clickhouse-server/config.d/use_keeper.xml'.
+Saved preprocessed configuration to '/var/lib/clickhouse/preprocessed_configs/config.xml'.
+2022.06.17 22:30:15.837113 [ 43 ] {} <Debug> ConfigReloader: Loaded config '/etc/clickhouse-server/config.xml', performing update on configuration
+2022.06.17 22:30:15.838895 [ 43 ] {} <Information> Application: Setting max_server_memory_usage was set to 27.97 GiB (31.08 GiB available * 0.90 max_server_memory_usage_to_ram_ratio)
+2022.06.17 22:30:15.867711 [ 43 ] {} <Debug> CertificateReloader: Reloading certificate (/etc/clickhouse-server/config.d/server.crt) and key (/etc/clickhouse-server/config.d/server.key).
+2022.06.17 22:30:15.869526 [ 43 ] {} <Information> CertificateReloader: Reloaded certificate (/etc/clickhouse-server/config.d/server.crt) and key (/etc/clickhouse-server/config.d/server.key).
+2022.06.17 22:30:15.869598 [ 43 ] {} <Debug> CertificateReloader: Initializing certificate reloader.
+2022.06.17 22:30:15.871841 [ 43 ] {} <Debug> ConfigReloader: Loaded config '/etc/clickhouse-server/config.xml', performed update on configuration
+2022.06.17 22:30:15.872293 [ 43 ] {} <Debug> Context: Keeper server is participant of the main zookeeper cluster, will try to connect to it
+2022.06.17 22:30:15.874600 [ 43 ] {} <Error> ZooKeeper: Cannot use ZooKeeper host node3:9181 due to DNS error: DNS error: Temporary DNS error while resolving: node3
+2022.06.17 22:30:15.876834 [ 43 ] {} <Information> Context: Cannot connect to ZooKeeper (or Keeper) before internal Keeper start, will wait for Keeper synchronously
+2022.06.17 22:30:15.876909 [ 43 ] {} <Debug> KeeperDispatcher: Initializing storage dispatcher
+2022.06.17 22:30:15.880589 [ 43 ] {} <Error> DNSResolver: Cannot resolve host (node3), error 0: DNS error.
+2022.06.17 22:30:15.881045 [ 43 ] {} <Error> bool DB::(anonymous namespace)::isLocalhost(const std::string &): Code: 198. DB::Exception: Not found address of host: node3. (DNS_ERROR), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int, bool) @ 0xb8a147a in /usr/bin/clickhouse
+1. ? @ 0xb98fc58 in /usr/bin/clickhouse
+2. ? @ 0xb98e802 in /usr/bin/clickhouse
+3. ? @ 0xb98ebe7 in /usr/bin/clickhouse
+4. DB::DNSResolver::resolveHost(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) @ 0xb98e51a in /usr/bin/clickhouse
+5. DB::KeeperStateManager::parseServersConfiguration(Poco::Util::AbstractConfiguration const&, bool) const @ 0x1755e715 in /usr/bin/clickhouse
+6. DB::KeeperStateManager::KeeperStateManager(int, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, Poco::Util::AbstractConfiguration const&, std::__1::shared_ptr<DB::CoordinationSettings> const&) @ 0x175609ca in /usr/bin/clickhouse
+7. DB::KeeperServer::KeeperServer(std::__1::shared_ptr<DB::KeeperConfigurationAndSettings> const&, Poco::Util::AbstractConfiguration const&, ConcurrentBoundedQueue<DB::KeeperStorage::ResponseForSession>&, ConcurrentBoundedQueue<DB::CreateSnapshotTask>&) @ 0x17531e79 in /usr/bin/clickhouse
+8. DB::KeeperDispatcher::initialize(Poco::Util::AbstractConfiguration const&, bool, bool) @ 0x17520e14 in /usr/bin/clickhouse
+9. DB::Context::initializeKeeperDispatcher(bool) const @ 0x15c8427c in /usr/bin/clickhouse
+10. DB::Server::main(std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xb929122 in /usr/bin/clickhouse
+11. Poco::Util::Application::run() @ 0x19dd75a6 in /usr/bin/clickhouse
+12. DB::Server::run() @ 0xb91a8d4 in /usr/bin/clickhouse
+13. mainEntryClickHouseServer(int, char**) @ 0xb917fa7 in /usr/bin/clickhouse
+14. main @ 0xb89a9d0 in /usr/bin/clickhouse
+15. __libc_start_main @ 0x7f5e8ed89083 in ?
+16. _start @ 0xb66d6ee in /usr/bin/clickhouse
+ (version 22.6.1.1985 (official build))
+2022.06.17 22:30:15.881228 [ 43 ] {} <Warning> KeeperLogStore: No logs exists in /var/lib/clickhouse/coordination/log. It's Ok if it's the first run of clickhouse-keeper.
+2022.06.17 22:30:15.881347 [ 43 ] {} <Information> KeeperLogStore: force_sync enabled
+2022.06.17 22:30:15.881471 [ 43 ] {} <Debug> KeeperDispatcher: Waiting server to initialize
+2022.06.17 22:30:15.881561 [ 43 ] {} <Debug> KeeperStateMachine: Totally have 0 snapshots
+2022.06.17 22:30:15.881576 [ 43 ] {} <Debug> KeeperStateMachine: No existing snapshots, last committed log index 0
+2022.06.17 22:30:15.881603 [ 43 ] {} <Warning> KeeperLogStore: Removing all changelogs
+2022.06.17 22:30:15.881700 [ 43 ] {} <Trace> KeeperLogStore: Starting new changelog /var/lib/clickhouse/coordination/log/changelog_1_100000.bin.zstd
+2022.06.17 22:30:15.882459 [ 43 ] {} <Information> KeeperServer: No config in log store and snapshot, probably it's initial run. Will use config from .xml on disk
+2022.06.17 22:30:15.883707 [ 43 ] {} <Error> DNSResolver: Cannot resolve host (node3), error 0: DNS error.
+2022.06.17 22:30:15.884126 [ 43 ] {} <Error> bool DB::(anonymous namespace)::isLocalhost(const std::string &): Code: 198. DB::Exception: Not found address of host: node3. (DNS_ERROR), Stack trace (when copying this message, always include the lines below):
+
+0. DB::Exception::Exception(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, int, bool) @ 0xb8a147a in /usr/bin/clickhouse
+1. ? @ 0xb98fc58 in /usr/bin/clickhouse
+2. ? @ 0xb98e802 in /usr/bin/clickhouse
+3. ? @ 0xb98ebe7 in /usr/bin/clickhouse
+4. DB::DNSResolver::resolveHost(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) @ 0xb98e51a in /usr/bin/clickhouse
+5. DB::KeeperStateManager::parseServersConfiguration(Poco::Util::AbstractConfiguration const&, bool) const @ 0x1755e715 in /usr/bin/clickhouse
+6. DB::KeeperServer::startup(Poco::Util::AbstractConfiguration const&, bool) @ 0x17537443 in /usr/bin/clickhouse
+7. DB::KeeperDispatcher::initialize(Poco::Util::AbstractConfiguration const&, bool, bool) @ 0x17521114 in /usr/bin/clickhouse
+8. DB::Context::initializeKeeperDispatcher(bool) const @ 0x15c8427c in /usr/bin/clickhouse
+9. DB::Server::main(std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > > > const&) @ 0xb929122 in /usr/bin/clickhouse
+10. Poco::Util::Application::run() @ 0x19dd75a6 in /usr/bin/clickhouse
+11. DB::Server::run() @ 0xb91a8d4 in /usr/bin/clickhouse
+12. mainEntryClickHouseServer(int, char**) @ 0xb917fa7 in /usr/bin/clickhouse
+13. main @ 0xb89a9d0 in /usr/bin/clickhouse
+14. __libc_start_main @ 0x7f5e8ed89083 in ?
+15. _start @ 0xb66d6ee in /usr/bin/clickhouse
+ (version 22.6.1.1985 (official build))
+2022.06.17 22:30:15.884190 [ 43 ] {} <Warning> KeeperServer: Very small snapshot_distance 75 specified in coordination settings. It doesn't make sense to specify such small value, because it can lead to degraded performance and another issues.
+2022.06.17 22:30:15.886277 [ 43 ] {} <Information> RaftInstance: Raft ASIO listener initiated, SSL enabled
+2022.06.17 22:30:15.886343 [ 43 ] {} <Information> RaftInstance: parameters: election timeout range 1000 - 2000, heartbeat 500, leadership expiry 10000, max batch 100, backoff 50, snapshot distance 75, log sync stop gap 99999, reserved logs 100000, client timeout 5000, auto forwarding on, API call type async, custom commit quorum size 0, custom election quorum size 0, snapshot receiver included, leadership transfer wait time 0, grace period of lagging state machine 0, snapshot IO: blocking
+2022.06.17 22:30:15.886362 [ 43 ] {} <Information> RaftInstance: new election timeout range: 1000 - 2000
+2022.06.17 22:30:15.886398 [ 43 ] {} <Information> RaftInstance:    === INIT RAFT SERVER ===
+commit index 0
+term 0
+election timer allowed
+log store start 1, end 0
+config log idx 0, prev log idx 0
+2022.06.17 22:30:15.886464 [ 43 ] {} <Trace> RaftInstance: asio client created: 0x7f5e8e063d98
+2022.06.17 22:30:15.886930 [ 43 ] {} <Trace> RaftInstance: asio client created: 0x7f5e8e064f18
+2022.06.17 22:30:15.886963 [ 43 ] {} <Information> RaftInstance: peer 1: DC ID 0, node1:9234, voting member, 3
+peer 2: DC ID 0, node2:9234, voting member, 2
+peer 3: DC ID 0, node3:9234, voting member, 1
+my id: 1, voting_member
+num peers: 2
+2022.06.17 22:30:15.886978 [ 43 ] {} <Information> RaftInstance: global manager does not exist. will use local thread for commit and append
+2022.06.17 22:30:15.887096 [ 43 ] {} <Information> RaftInstance: wait for HB, for 50 + [1000, 2000] ms
+2022.06.17 22:30:15.887094 [ 63 ] {} <Trace> RaftInstance: commit_cv_ sleep
+2022.06.17 22:30:15.887173 [ 64 ] {} <Information> RaftInstance: bg append_entries thread initiated
+2022.06.17 22:30:15.937505 [ 43 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:15.937550 [ 43 ] {} <Debug> RaftInstance: server 1 started
+2022.06.17 22:30:15.937592 [ 43 ] {} <Trace> RaftInstance: asio rpc session created: 0x7f5e8e12f718
+2022.06.17 22:30:15.937618 [ 43 ] {} <Debug> KeeperDispatcher: Server initialized, waiting for quorum
+2022.06.17 22:30:17.660707 [ 55 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:17.660748 [ 55 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:17.660779 [ 55 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:17.660794 [ 55 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:17.660820 [ 55 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:17.660830 [ 55 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:17.660839 [ 55 ] {} <Debug> RaftInstance: socket 0x7f5e8e064f18 to node3:9234 is not opened yet
+2022.06.17 22:30:17.660900 [ 55 ] {} <Trace> RaftInstance: send req 1 -> 2, type pre_vote_request
+2022.06.17 22:30:17.660913 [ 55 ] {} <Debug> RaftInstance: socket 0x7f5e8e063d98 to node2:9234 is not opened yet
+2022.06.17 22:30:17.660919 [ 55 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:17.660925 [ 55 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:17.661494 [ 59 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to connect to peer 3, node3:9234, error 111
+2022.06.17 22:30:17.661495 [ 61 ] {} <Trace> RaftInstance: resp of req 1 -> 2, type pre_vote_request, failed to connect to peer 2, node2:9234, error 111
+2022.06.17 22:30:17.661527 [ 59 ] {} <Warning> RaftInstance: peer (3) response error: failed to connect to peer 3, node3:9234, error 111
+2022.06.17 22:30:17.661552 [ 59 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e8e064f18
+2022.06.17 22:30:17.661553 [ 61 ] {} <Warning> RaftInstance: peer (2) response error: failed to connect to peer 2, node2:9234, error 111
+2022.06.17 22:30:17.661578 [ 61 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e8e063d98
+2022.06.17 22:30:19.474017 [ 56 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:19.474088 [ 56 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:19.474133 [ 56 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:19.474154 [ 56 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:19.474192 [ 56 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:19.474266 [ 56 ] {} <Trace> RaftInstance: asio client created: 0x7f5e8e065998
+2022.06.17 22:30:19.474287 [ 56 ] {} <Trace> RaftInstance: 0x7f5e8e065998 reconnect peer 3
+2022.06.17 22:30:19.474306 [ 56 ] {} <Information> RaftInstance: reset RPC client for peer 2
+2022.06.17 22:30:19.474358 [ 56 ] {} <Trace> RaftInstance: asio client created: 0x7f5e8e065d18
+2022.06.17 22:30:19.474391 [ 56 ] {} <Trace> RaftInstance: 0x7f5e8e065d18 reconnect peer 2
+2022.06.17 22:30:19.474424 [ 56 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 1
+2022.06.17 22:30:19.474460 [ 56 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:19.474490 [ 56 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:19.474518 [ 56 ] {} <Debug> RaftInstance: socket 0x7f5e8e065998 to node3:9234 is not opened yet
+2022.06.17 22:30:19.474556 [ 56 ] {} <Trace> RaftInstance: send req 1 -> 2, type pre_vote_request
+2022.06.17 22:30:19.474576 [ 56 ] {} <Debug> RaftInstance: socket 0x7f5e8e065d18 to node2:9234 is not opened yet
+2022.06.17 22:30:19.474598 [ 56 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:19.474619 [ 56 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:19.475848 [ 62 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:19.475895 [ 62 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:19.475922 [ 62 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e8e065998
+2022.06.17 22:30:19.476715 [ 58 ] {} <Trace> RaftInstance: resp of req 1 -> 2, type pre_vote_request, failed to resolve host node2 due to error 2
+2022.06.17 22:30:19.476807 [ 58 ] {} <Warning> RaftInstance: peer (2) response error: failed to resolve host node2 due to error 2
+2022.06.17 22:30:19.476852 [ 58 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e8e065d18
+2022.06.17 22:30:20.606729 [ 55 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:20.606766 [ 55 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:20.606782 [ 55 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:20.606793 [ 55 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:20.606805 [ 55 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:20.606890 [ 55 ] {} <Trace> RaftInstance: asio client created: 0x7f5e6b82c018
+2022.06.17 22:30:20.606897 [ 55 ] {} <Trace> RaftInstance: 0x7f5e6b82c018 reconnect peer 3
+2022.06.17 22:30:20.606902 [ 55 ] {} <Information> RaftInstance: reset RPC client for peer 2
+2022.06.17 22:30:20.606932 [ 55 ] {} <Trace> RaftInstance: asio client created: 0x7f5e6b82c398
+2022.06.17 22:30:20.606941 [ 55 ] {} <Trace> RaftInstance: 0x7f5e6b82c398 reconnect peer 2
+2022.06.17 22:30:20.606950 [ 55 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 2
+2022.06.17 22:30:20.606966 [ 55 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:20.606975 [ 55 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:20.606984 [ 55 ] {} <Debug> RaftInstance: socket 0x7f5e6b82c018 to node3:9234 is not opened yet
+2022.06.17 22:30:20.607002 [ 55 ] {} <Trace> RaftInstance: send req 1 -> 2, type pre_vote_request
+2022.06.17 22:30:20.607009 [ 55 ] {} <Debug> RaftInstance: socket 0x7f5e6b82c398 to node2:9234 is not opened yet
+2022.06.17 22:30:20.607016 [ 55 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:20.607024 [ 55 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:20.607690 [ 57 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:20.607725 [ 57 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:20.607739 [ 57 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e6b82c018
+2022.06.17 22:30:22.071300 [ 60 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:22.071415 [ 60 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:22.071473 [ 60 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:22.071522 [ 60 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:22.071577 [ 60 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:22.071757 [ 60 ] {} <Trace> RaftInstance: asio client created: 0x7f5e67a4e018
+2022.06.17 22:30:22.071788 [ 60 ] {} <Trace> RaftInstance: 0x7f5e67a4e018 reconnect peer 3
+2022.06.17 22:30:22.071819 [ 60 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 3
+2022.06.17 22:30:22.071854 [ 60 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:22.071881 [ 60 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:22.071928 [ 60 ] {} <Debug> RaftInstance: socket 0x7f5e67a4e018 to node3:9234 is not opened yet
+2022.06.17 22:30:22.071974 [ 60 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:22.072025 [ 60 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:22.072055 [ 60 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:23.439188 [ 56 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:23.439294 [ 56 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:23.439336 [ 56 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:23.439364 [ 56 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:23.439403 [ 56 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 4
+2022.06.17 22:30:23.439447 [ 56 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:23.439470 [ 56 ] {} <Warning> RaftInstance: failed to send prevote request: peer 3 (node3:9234) is busy
+2022.06.17 22:30:23.439499 [ 56 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:23.439532 [ 56 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:23.439558 [ 56 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:24.917833 [ 55 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:24.917910 [ 55 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:24.917937 [ 55 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:24.917955 [ 55 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:24.917984 [ 55 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 5
+2022.06.17 22:30:24.918014 [ 55 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:24.918034 [ 55 ] {} <Warning> RaftInstance: failed to send prevote request: peer 3 (node3:9234) is busy
+2022.06.17 22:30:24.918052 [ 55 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:24.918110 [ 55 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:24.918129 [ 55 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:26.192190 [ 61 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:26.192223 [ 61 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:26.192237 [ 61 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:26.192253 [ 61 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:26.192274 [ 61 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 6
+2022.06.17 22:30:26.192291 [ 61 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:26.192299 [ 61 ] {} <Warning> RaftInstance: failed to send prevote request: peer 3 (node3:9234) is busy
+2022.06.17 22:30:26.192310 [ 61 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:26.192318 [ 61 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:26.192326 [ 61 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:26.554513 [ 59 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to connect to peer 3, node3:9234, error 111
+2022.06.17 22:30:26.554538 [ 59 ] {} <Warning> RaftInstance: peer (3) response error: failed to connect to peer 3, node3:9234, error 111
+2022.06.17 22:30:26.554561 [ 59 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e67a4e018
+2022.06.17 22:30:27.253500 [ 57 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:27.253615 [ 57 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:27.253647 [ 57 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:27.253707 [ 57 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:27.253735 [ 57 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:27.253790 [ 57 ] {} <Trace> RaftInstance: asio client created: 0x7f5e6b82c018
+2022.06.17 22:30:27.253818 [ 57 ] {} <Trace> RaftInstance: 0x7f5e6b82c018 reconnect peer 3
+2022.06.17 22:30:27.253843 [ 57 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 7
+2022.06.17 22:30:27.253905 [ 57 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:27.253941 [ 57 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:27.253975 [ 57 ] {} <Debug> RaftInstance: socket 0x7f5e6b82c018 to node3:9234 is not opened yet
+2022.06.17 22:30:27.254012 [ 57 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:27.254055 [ 57 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:27.254087 [ 57 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:27.255552 [ 58 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:27.255598 [ 58 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:27.255643 [ 58 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e6b82c018
+2022.06.17 22:30:28.621247 [ 60 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:28.621377 [ 60 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:28.621420 [ 60 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:28.621461 [ 60 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:28.621508 [ 60 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:28.621636 [ 60 ] {} <Trace> RaftInstance: asio client created: 0x7f5e67a4e398
+2022.06.17 22:30:28.621668 [ 60 ] {} <Trace> RaftInstance: 0x7f5e67a4e398 reconnect peer 3
+2022.06.17 22:30:28.621694 [ 60 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 8
+2022.06.17 22:30:28.621731 [ 60 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:28.621758 [ 60 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:28.621775 [ 60 ] {} <Debug> RaftInstance: socket 0x7f5e67a4e398 to node3:9234 is not opened yet
+2022.06.17 22:30:28.621804 [ 60 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:28.621837 [ 60 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:28.621857 [ 60 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:28.623483 [ 56 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:28.623539 [ 56 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:28.623583 [ 56 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e67a4e398
+2022.06.17 22:30:30.518039 [ 62 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:30.518126 [ 62 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:30.518166 [ 62 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:30.518228 [ 62 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:30.518265 [ 62 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:30.518316 [ 62 ] {} <Trace> RaftInstance: asio client created: 0x7f5e8e065998
+2022.06.17 22:30:30.518341 [ 62 ] {} <Trace> RaftInstance: 0x7f5e8e065998 reconnect peer 3
+2022.06.17 22:30:30.518369 [ 62 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 9
+2022.06.17 22:30:30.518414 [ 62 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:30.518442 [ 62 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:30.518480 [ 62 ] {} <Debug> RaftInstance: socket 0x7f5e8e065998 to node3:9234 is not opened yet
+2022.06.17 22:30:30.518514 [ 62 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:30.518544 [ 62 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:30.518566 [ 62 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:30.520005 [ 61 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:30.520074 [ 61 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:30.520120 [ 61 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e8e065998
+2022.06.17 22:30:32.354708 [ 55 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:32.354819 [ 55 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:32.354853 [ 55 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:32.354875 [ 55 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:32.354904 [ 55 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:32.355043 [ 55 ] {} <Trace> RaftInstance: asio client created: 0x7f5e6b82c718
+2022.06.17 22:30:32.355069 [ 55 ] {} <Trace> RaftInstance: 0x7f5e6b82c718 reconnect peer 3
+2022.06.17 22:30:32.355092 [ 55 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 10
+2022.06.17 22:30:32.355127 [ 55 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:32.355153 [ 55 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:32.355179 [ 55 ] {} <Debug> RaftInstance: socket 0x7f5e6b82c718 to node3:9234 is not opened yet
+2022.06.17 22:30:32.355213 [ 55 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:32.355234 [ 55 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:32.355248 [ 55 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:32.356753 [ 57 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:32.356806 [ 57 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:32.356844 [ 57 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e6b82c718
+2022.06.17 22:30:34.126419 [ 59 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:34.126515 [ 59 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:34.126545 [ 59 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:34.126583 [ 59 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:34.126608 [ 59 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:34.126645 [ 59 ] {} <Trace> RaftInstance: asio client created: 0x7f5e67a4e018
+2022.06.17 22:30:34.126662 [ 59 ] {} <Trace> RaftInstance: 0x7f5e67a4e018 reconnect peer 3
+2022.06.17 22:30:34.126679 [ 59 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 11
+2022.06.17 22:30:34.126709 [ 59 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:34.126726 [ 59 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:34.126741 [ 59 ] {} <Debug> RaftInstance: socket 0x7f5e67a4e018 to node3:9234 is not opened yet
+2022.06.17 22:30:34.126779 [ 59 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:34.126815 [ 59 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:34.126836 [ 59 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:34.128312 [ 60 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:34.128368 [ 60 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:34.128402 [ 60 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e67a4e018
+2022.06.17 22:30:35.894130 [ 58 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:35.894220 [ 58 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:35.894248 [ 58 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:35.894280 [ 58 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:35.894300 [ 58 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:35.894339 [ 58 ] {} <Trace> RaftInstance: asio client created: 0x7f5e6b82c018
+2022.06.17 22:30:35.894358 [ 58 ] {} <Trace> RaftInstance: 0x7f5e6b82c018 reconnect peer 3
+2022.06.17 22:30:35.894374 [ 58 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 12
+2022.06.17 22:30:35.894432 [ 58 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:35.894463 [ 58 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:35.894494 [ 58 ] {} <Debug> RaftInstance: socket 0x7f5e6b82c018 to node3:9234 is not opened yet
+2022.06.17 22:30:35.894532 [ 58 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:35.894564 [ 58 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:35.894587 [ 58 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:35.896110 [ 62 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:35.896176 [ 62 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:35.896210 [ 62 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e6b82c018
+2022.06.17 22:30:37.141694 [ 56 ] {} <Trace> RaftInstance: election timeout
+2022.06.17 22:30:37.141768 [ 56 ] {} <Warning> RaftInstance: Election timeout, initiate leader election
+2022.06.17 22:30:37.141823 [ 56 ] {} <Information> RaftInstance: [PRIORITY] decay, target 1 -> 1, mine 3
+2022.06.17 22:30:37.141848 [ 56 ] {} <Information> RaftInstance: [ELECTION TIMEOUT] current role: follower, log last term 0, state term 0, target p 1, my p 3, hb dead, pre-vote NOT done
+2022.06.17 22:30:37.141874 [ 56 ] {} <Information> RaftInstance: reset RPC client for peer 3
+2022.06.17 22:30:37.141932 [ 56 ] {} <Trace> RaftInstance: asio client created: 0x7f5e67a4e398
+2022.06.17 22:30:37.141959 [ 56 ] {} <Trace> RaftInstance: 0x7f5e67a4e398 reconnect peer 3
+2022.06.17 22:30:37.141991 [ 56 ] {} <Warning> RaftInstance: total 1 nodes (including this node) responded for pre-vote (term 0, live 0, dead 1), at least 2 nodes should respond. failure count 13
+2022.06.17 22:30:37.142036 [ 56 ] {} <Information> RaftInstance: [PRE-VOTE INIT] my id 1, my role follower, term 0, log idx 0, log term 0, priority (target 1 / mine 3)
+2022.06.17 22:30:37.142067 [ 56 ] {} <Trace> RaftInstance: send req 1 -> 3, type pre_vote_request
+2022.06.17 22:30:37.142094 [ 56 ] {} <Debug> RaftInstance: socket 0x7f5e67a4e398 to node3:9234 is not opened yet
+2022.06.17 22:30:37.142134 [ 56 ] {} <Warning> RaftInstance: failed to send prevote request: peer 2 (node2:9234) is busy
+2022.06.17 22:30:37.142163 [ 56 ] {} <Trace> RaftInstance: cancel existing timer
+2022.06.17 22:30:37.142177 [ 56 ] {} <Trace> RaftInstance: re-schedule election timer
+2022.06.17 22:30:37.143557 [ 55 ] {} <Trace> RaftInstance: resp of req 1 -> 3, type pre_vote_request, failed to resolve host node3 due to error 2
+2022.06.17 22:30:37.143598 [ 55 ] {} <Warning> RaftInstance: peer (3) response error: failed to resolve host node3 due to error 2
+2022.06.17 22:30:37.143637 [ 55 ] {} <Trace> RaftInstance: asio client destroyed: 0x7f5e67a4e398
