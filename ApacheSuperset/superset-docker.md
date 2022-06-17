@@ -39,7 +39,7 @@ docker exec -it superset superset init
 
 - Add the drivers for ClickHouse and SQLAlchemy as root
 ```
-docker exec -it -u 0 superset bash -c "pip install clickhouse-connect==0.0.10"
+docker exec -it -u 0 superset bash -c "pip install clickhouse-connect"
 docker restart superset
 ```
 
