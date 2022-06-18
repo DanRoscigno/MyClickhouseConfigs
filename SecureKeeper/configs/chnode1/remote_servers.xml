@@ -1,5 +1,5 @@
 <clickhouse>
-    <remote_servers>
+    <remote_servers replace="true">
         <cluster_1S_2R>
             <shard>
                 <replica>
