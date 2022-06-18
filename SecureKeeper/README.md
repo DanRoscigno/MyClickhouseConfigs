@@ -1,5 +1,32 @@
 The `docker-compose.yml` file in this dir sets up a replicated
 ClickHouse system which uses ClickHouse Keeper for coordination.
+
+ClickHouse connect to ClickHouse Keeper securely using TLS.
+
+The differences to add TLS are minimal:
+- Specify `<secure>true</secure>` in the `<keeper_server>` `<raft_configuration>`
+- Add this `<openssl>` configuration:
+    ```xml
+    <clickhouse>
+        <openSSL>
+            <server>
+                <certificateFile>/etc/clickhouse-server/config.d/server.crt</certificateFile>
+                <privateKeyFile>/etc/clickhouse-server/config.d/server.key</privateKeyFile>
+                <caConfig>/etc/clickhouse-server/config.d/rootCA.pem</caConfig>
+                <loadDefaultCAFile>true</loadDefaultCAFile>
+                <verificationMode>none</verificationMode>
+                <cacheSessions>true</cacheSessions>
+                <disableProtocols>sslv2,sslv3</disableProtocols>
+                <preferServerCiphers>true</preferServerCiphers>
+            </server>
+        </openSSL>
+    </clickhouse>
+    ```
+- Generate these openSSL files:
+    - server.crt               
+    - server.key               
+    - rootCA.pem         
+
 This system is based on the 
 [guide to creating unique ClickHouse Keeper entries](https://clickhouse.com/docs/en/guides/sre/keeper/clickhouse-keeper-uuid).
 
