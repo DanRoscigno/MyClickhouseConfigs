@@ -12,6 +12,7 @@
         </coordination_settings>
 
         <raft_configuration>
+            <secure>true</secure>
             <server>
                 <id>1</id>
                 <hostname>chnode1</hostname>
