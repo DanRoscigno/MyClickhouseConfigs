@@ -3,7 +3,7 @@ version: "3.7"
 services:
   chnode1:
     restart: unless-stopped
-    image: clickhouse/clickhouse-server:22.5
+    image: clickhouse/clickhouse-server:head-alpine
     ulimits:
       nproc: 65535
       nofile:
@@ -23,7 +23,7 @@ services:
 
   chnode2:
     restart: unless-stopped
-    image: clickhouse/clickhouse-server:22.5
+    image: clickhouse/clickhouse-server:head-alpine
     ulimits:
       nproc: 65535
       nofile:
@@ -43,7 +43,7 @@ services:
 
   chnode3:
     restart: unless-stopped
-    image: clickhouse/clickhouse-server:22.5
+    image: clickhouse/clickhouse-server:head-alpine
     ulimits:
       nproc: 65535
       nofile:
